@@ -336,11 +336,11 @@ const apiKey = "Z3NrX0ZPbDIzcURlbGVBenVwODFyelQ3V0dkeWIzRllmQnZyRTZzVHdlSUI3SmtD
 async function getData() {
     
     let prompts = {
-        "Random 1 Word": `Give me 30 random words along with a related 2 emojis and a description (1 whole sentence) about the word without telling the word itself. STRICTLY USE THIS FORMAT: "[{"word": "example", "emoji": "🔥🔥", "hint": "description"}]" **MUST BE A VALID JSON FORMATTING**`,
-        "Movies": `Give me 30 random popular movie titles of all time along with a related 3 different emojis and a description about the movie which include the date, some popular characters and story. STRICTLY USE THIS FORMAT: "[{"word": "example", "emoji": "🔥🔥🔥", "hint": "hint"}]" **MUST BE A VALID JSON FORMATTING**`,
-        "Holidays & Events": `Give me 30 random popular Holidays in the Philippines along with a related 3 different emojis and a description about the word which include the date. STRICTLY USE THIS FORMAT: "[{"word": "example", "emoji": "🔥🔥🔥", "hint": "hint"}]" **MUST BE A VALID JSON FORMATTING**`,
-        "Places": `Give me 30 random popular places along with a related 3 different emojis and a description about the place. STRICTLY USE THIS FORMAT: "[{"word": "example", "emoji": "🔥🔥🔥", "hint": "hint"}]" **MUST BE A VALID JSON FORMATTING**`,
-        "Video Games": `Give me 30 random popular video games of all time along with a related 3 different emojis and a description about the game which include date and type of game. STRICTLY USE THIS FORMAT: "[{"word": "example", "emoji": "🔥🔥🔥", "hint": "hint"}]" **MUST BE A VALID JSON FORMATTING**`,
+        "Random 1 Word": `Give me 30 random words along with a related 2 emojis and a description (1 whole sentence) about the word (without telling the word itself). STRICTLY USE THIS FORMAT: "[{"word": "example", "emoji": "🔥🔥", "hint": "description"}]" **MUST BE A VALID JSON FORMATTING**`,
+        "Movies": `Give me 30 random popular movie titles of all time along with a related 3 different emojis and a description about the movie which include the date, some popular characters and story (without telling the movie title). STRICTLY USE THIS FORMAT: "[{"word": "example", "emoji": "🔥🔥🔥", "hint": "hint"}]" **MUST BE A VALID JSON FORMATTING**`,
+        "Holidays & Events": `Give me 30 random popular Holidays in the Philippines along with a related 3 different emojis and a description about the word which include the date (without telling the holiday itself). STRICTLY USE THIS FORMAT: "[{"word": "example", "emoji": "🔥🔥🔥", "hint": "hint"}]" **MUST BE A VALID JSON FORMATTING**`,
+        "Places": `Give me 30 random popular places along with a related 3 different emojis and a description about the place (without telling the place itself). STRICTLY USE THIS FORMAT: "[{"word": "example", "emoji": "🔥🔥🔥", "hint": "hint"}]" **MUST BE A VALID JSON FORMATTING**`,
+        "Video Games": `Give me 30 random popular video games of all time along with a related 3 different emojis and a description about the game which include date and type of game (without telling the game name). STRICTLY USE THIS FORMAT: "[{"word": "example", "emoji": "🔥🔥🔥", "hint": "hint"}]" **MUST BE A VALID JSON FORMATTING**`,
     };
 
     let prompt = prompts[categoryBtn.textContent]
