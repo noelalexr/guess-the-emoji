@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Emoji!</title>
+ 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Indie+Flower&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="./images/tab-icon.png">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
+</head>
+<body>
+
+    <!-- HOME PAGE -->
+    <div class="homePage">
+
+        <h1 class="gameTitle">
+            <img class="titleEmoji" src="./images/thinking-gif.gif" alt="Emoji" width="100px">
+            Guess the Emoji! 
+            <img class="titleEmoji" src="./images/confuse-gif.gif" alt="Emoji" width="100px">
+        </h1>
+        
+        <p class="titleEmojiMobile">
+            <img src="./images/thinking-gif.gif" alt="Emoji" width="100px">
+            <img src="./images/confuse-gif.gif" alt="Emoji" width="100px">
+        </p>
+        
+        <p class="gameDescription">Guess the emoji is a fun game where players interpret emoji clues to guess words. It challenges creativity and quick thinking, making it great for solo or group play!</p>
+
+        <div class="howToPlay">
+            <h2 class="howToPlayTitle">How to play?</h2>
+            <ol>
+                <li>Choose a Category: Select a category you want (Random 1 word, Movies, Holidays & Events, Places, Video games)</li>
+                <li>Choose number of rounds: Select a number of round you want (1 round only, 5 rounds, 10 rounds, 15 rounds or 20 rounds)</li>
+                <li>Start the Game: The game will generate random emojis in 1, 5, 10, 15 or 20 consecutive rounds.</li>
+                <li>Guess the Word: Look at the emojis and try to figure out what they represent (Hint about the words will always be given)</li>
+                <li>Submit Your Answer: Type your guess into the input box and submit it.</li>
+                <li>Check Your Answer: If correct, you win the round! If wrong, you can choose to show the correct answer or try again!</li>
+                <li>Play Again: Choose a new category and continue guessing new emoji puzzles.</li>
+            </ol>
+        </div>
+    
+        <div class="gameOptions">
+            <div class="categories">
+                <p class="gameOptionsTitle">Category:</p>
+                <button class="categoryBtn">Random 1 Word</button>
+                <div class="categoryContent">
+                    <a href="javascript:void(0);" onclick="selectCategory(`Random 1 Word`)">Random 1 Word</a>
+                    <a href="javascript:void(0);" onclick="selectCategory(`Movies`)">Movies</a>
+                    <a href="javascript:void(0);" onclick="selectCategory(`Holidays & Events`)">Holidays & Events</a>
+                    <a href="javascript:void(0);" onclick="selectCategory(`Places`)">Places</a>
+                    <a href="javascript:void(0);" onclick="selectCategory(`Video Games`)">Video Games</a>
+                </div>
+            </div>
+
+            <div class="roundCount">
+                <p class="gameOptionsTitle">Round Count:</p>
+                <button class="roundCountBtn">5 Rounds</button>
+                <div class="roundCountContent">
+                    <a href="javascript:void(0);" onclick="selectRoundCount(`1 Round`)">1 Round</a>
+                    <a href="javascript:void(0);" onclick="selectRoundCount(`5 Rounds`)">5 Rounds</a>
+                    <a href="javascript:void(0);" onclick="selectRoundCount(`10 Rounds`)">10 Rounds</a>
+                    <a href="javascript:void(0);" onclick="selectRoundCount(`15 Rounds`)">15 Rounds</a>
+                    <a href="javascript:void(0);" onclick="selectRoundCount(`20 Rounds`)">20 Rounds</a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="btnContainer">
+            <button class="startBtn">Start the Game!</button>
+        </div>
+    </div>
+
+    <!-- LOADING PAGE -->
+    <div class="loadingPage hidden">
+        <p class="loadingText">Loading...</p>
+        <div class="loadingCircle"></div>
+    </div>
+
+    <!-- GAME PAGE -->
+    <div class="gamePage hidden">
+
+        <div class="roundTitle">
+            <h1>Round <span class="roundNumber"></span></h1>
+        </div>
+
+        <div class="gamePageOptions">
+            <div class="gamePageCategory">
+                <p class="gameOptionsTitle">Category:</p><p class="gamePageSelectedCategory"></p>
+            </div>
+            <div class="gamePageRoundCount">
+                <p class="gameOptionsTitle">Round Count:</p><p class="gamePageSelectedRoundCount"></p>
+            </div>
+        </div>
+
+        <div class="emojiDisplayContainer">
+            <p class="emojiDisplay"></p>
+        </div>
+
+        <div class="hintSection">
+            <h2 class="hintTitle">Hint</h2>
+            <p class="hintContent"></p>
+        </div>
+
+        <div class="answerSection">
+            <input type="text" class="answerInput" placeholder="Enter your guess here...">
+            <button class="submitAnswerBtn">Submit</button>
+        </div>
+        
+        <p class="feedbackDisplay"></p>
+
+        <p class="correctAnswerDisplay"></p>
+        
+        <div class="btnContainer">
+            <button class="showAnswerBtn">Show Answer?</button>
+            <button class="nextRoundBtn">Next Round!</button>
+            <button class="showResultBtn">Show Result!</button>
+        </div>
+
+    </div>
+
+    <!-- SCORE PAGE -->
+    <div class="scorePage hidden">
+
+        <h1 class="scorePageTitle"></h1>
+        <img class="scorePageEmoji" src="" alt="emoji">
+
+        <p class="scoreTitle">Your score is:</p>
+    
+        <p class="scoreDisplay"></p>
+
+        <p class="scoreFeedbackDisplay"></p>
+    
+        <div class="btnContainer">
+            <button class="playAgainBtn">Play Again!</button>
+        </div>
+        
+    </div>
+
+    <footer>
+        <p class="footerPc">Guess the Emoji Game | Developed and Designed by <b>Alexander Noel</b></p>
+        <p class="footerMobile">Guess the Emoji Game | Developed and Designed by<br><b>Alexander Noel</b></p>
+        <p>© 2025 All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>

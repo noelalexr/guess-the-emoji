@@ -1,0 +1,543 @@
+* {
+    font-family: "Quicksand", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    background-color: #000000;
+    color: #FFFFFF;
+    min-height: 100vh;
+    min-width: 100vw;
+    background-image: url("images/background.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.gameTitle {
+    font-family: "Indie Flower", cursive;
+    font-size: 100px;
+    font-weight: 900;
+    color: #FFCC22;
+    text-align: center;
+    letter-spacing: 5px;
+    padding: 50px 50px 0 50px;
+}
+
+.titleEmojiMobile {
+    display: none;
+}
+
+.gameDescription {
+    font-family: "Indie Flower", cursive;
+    text-align: center;
+    letter-spacing: 2px;
+    max-width: 1200px;
+    padding: 30px 50px 50px;
+    font-weight: 600;
+    font-size: 20px;
+    color: aqua;
+    font-style: italic;
+    margin: 0 auto;
+}
+
+.howToPlay {
+    background-color: rgba(128, 128, 128, 0.35);
+    color: white;
+    padding: 20px 50px;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.howToPlay li {
+    padding: 0 0 5px 5px;
+}
+
+.howToPlayTitle {
+    padding-bottom: 15px;
+    font-size: 20px;
+}
+
+.gameOptions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gamePageOptions {
+    display: flex;
+    justify-content: center;
+}
+
+.categories,
+.roundCount {
+    position: relative;
+    padding: 0 20px 50px;
+}
+
+.gameOptionsTitle {
+    font-family: "Indie Flower", cursive;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: aqua;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.categoryBtn,
+.roundCountBtn {
+    display: block;
+    cursor: pointer;
+    border: 0;
+    background-color: rgb(100, 100, 100) ;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    width: 300px;
+    margin: 10px auto;
+}
+
+.categoryBtn:hover,
+.roundCountBtn:hover {
+    background-color: rgb(75, 75, 75);
+}
+
+.categoryContent,
+.roundCountContent {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    background-color: rgba(83, 83, 83, 0.95);
+    text-align: center;
+    width: 300px;
+    margin: 0 auto;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.categoryContent > a,
+.roundCountContent > a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    padding: 10px;
+    display: block;
+}
+
+.categoryContent > a:hover,
+.roundCountContent > a:hover {
+    background-color: rgba(70, 70, 70);
+    color: aqua;
+    border-radius: 5px;
+    transform: scale(1.1);
+    box-shadow: 0 0 5px 2px aqua;
+}
+
+.btnContainer {
+    padding: 40px 0 140px;
+}
+
+.startBtn,
+.nextRoundBtn,
+.showAnswerBtn,
+.showResultBtn,
+.playAgainBtn {
+    font-family: "Indie Flower", cursive;
+    cursor: pointer;
+    font-weight: 600;
+    display: block;
+    border: 0;
+    background-color: aqua;
+    padding: 10px 30px;
+    border-radius: 15px;
+    font-size: 20px;
+    margin: 0 auto;
+}
+
+.showAnswerBtn {
+    background-color: orangered;
+}
+
+.startBtn:hover,
+.nextRoundBtn:hover,
+.submitAnswerBtn:hover,
+.showResultBtn:hover,
+.playAgainBtn:hover {
+    background-color: rgb(0, 210, 210);
+    color: white;
+    box-shadow: white 0 0 0 3px;
+}
+
+.showAnswerBtn:hover {
+    background-color: red;
+    color: white;
+    box-shadow: white 0 0 0 3px;
+}
+
+.loadingPage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.75s, visibility 075s;
+}
+
+.loadingText {
+    font-family: "Indie Flower", cursive;
+    font-weight: 600;
+    font-size: 25px;
+    letter-spacing: 1px;
+    color: #FFCC22;
+    text-align: center;
+    padding: 0 30px;
+}
+
+.loadingCircle {
+    margin: 20px;
+    width: 50px;
+    height: 50px;
+    border: 5px solid aqua;
+    border-radius: 50%;
+    border-top-color: rgba(0, 0, 0, 0);
+    animation: loading 0.75s ease infinite;
+}
+
+@keyframes loading {
+    from {
+        transform: rotate(0turn);
+    }
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+.roundTitle > h1,
+.roundTitle > span,
+.scorePageTitle {
+    font-family: "Indie Flower", cursive;
+    font-size: 75px;
+    font-weight: 600;
+    color: #FFCC22;
+    text-align: center;
+    letter-spacing: 3px;
+    padding-top: 30px;
+}
+
+.gamePageCategory,
+.gamePageRoundCount {
+    display: flex;
+    justify-content: center;
+    padding: 0 50px;
+}
+
+.gamePageSelectedCategory,
+.gamePageSelectedRoundCount {
+    color: white;
+    font-size: 18px;
+    letter-spacing: 0;
+    text-align: center;
+    margin-top: 30px;
+    padding: 0 10px;
+}
+
+.emojiDisplayContainer {
+    background-color: rgba(128, 128, 128, 0.65);
+    max-width: 600px;
+    padding: 35px 50px;
+    margin: 25px auto;
+    border-radius: 50px;
+}
+
+.emojiDisplay {
+    font-size: 100px;
+    text-align: center;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.hintSection {
+    max-width: 500px;
+    margin: 60px auto;
+    border-radius: 5px;
+    padding: 5px 20px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.hintTitle {
+    padding-bottom: 15px;
+    font-size: 20px;
+}
+
+.hintContent {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.answerSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
+
+.answerInput {
+    font-family: "Indie Flower", cursive;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background-color: rgba(0, 255, 255, 0.15);
+    text-align: center;
+    min-width: 300px;
+    color: white;
+    border: 2px solid aqua;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+input::placeholder {
+    color: rgba(0, 255, 255, 0.25);
+    font-size: 16px;
+    font-style: italic;
+}
+
+.submitAnswerBtn {
+    cursor: pointer;
+    font-family: "Indie Flower", cursive;
+    font-weight: 600;
+    letter-spacing: 2px;
+    border: 0;
+    background-color: aqua;
+    padding: 10px 18px;
+    border-radius: 15px;
+    margin-left: 15px;
+    font-size: 18px;
+}
+
+.feedbackDisplay,
+.scoreFeedbackDisplay {
+    font-family: "Indie Flower", cursive;
+    color: aqua;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-align: center;
+    font-size: 25px;
+    margin-top: 40px;
+}
+
+.correctAnswerDisplay {
+    font-family: "Indie Flower", cursive;
+    font-size: 50px;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 3px;
+    padding: 25px 20px 0;
+}
+
+.scoreTitle {
+    font-family: "Indie Flower", cursive;
+    color: aqua;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 50px;
+}
+
+.scorePageEmoji {
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+}
+
+.scoreDisplay {
+    color: white;
+    font-weight: 500;
+    text-align: center;
+    font-size: 200px;
+    margin-top: 25px;
+}
+
+.playAgainBtn {
+    margin-top: 75px;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    position: absolute;
+    bottom: 0vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: lightgray;
+    text-align: center;
+    padding: 20px 0 30px;
+    font-size: 13px;
+}
+
+.footerMobile {
+    display: none;
+}
+
+
+@media (min-width:681px) and (max-width: 1200px) {
+    .gameTitle {
+        font-size: 7vw;
+    }
+
+    .howToPlay {
+        max-width: 80vw;
+    }
+
+    .titleEmoji {
+        width: 9vw;
+    }
+
+    .gamePageOptions {
+        display: flex;
+        justify-content: center;
+    }
+    
+}
+
+@media (max-width: 680px) {
+    .gameTitle {
+        font-size: 10vw;
+        letter-spacing: 1px;
+    }
+
+    .titleEmoji {
+        display: none;
+    }
+
+    .titleEmojiMobile {
+        display: block;
+        text-align: center;
+
+    }    
+
+    .titleEmojiMobile > img {
+        width: 75px;
+    }
+
+    .gameDescription {
+        font-size: 18px;
+    }
+
+    .howToPlayTitle {
+        font-size: 18px;
+    }
+
+    .howToPlay {
+        margin: 0 30px;
+    }
+
+    .gameOptions {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .gamePageOptions {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .gameOptionsTitle {
+        font-size: 18px;
+    }
+
+    .gamePageCategory,
+    .gamePageRoundCount {
+        display: flex;
+        flex-direction: column;
+        padding: 0 30px;
+    }
+
+    .gamePageSelectedCategory,
+    .gamePageSelectedRoundCount {
+        margin-top: 0;
+    }
+
+    .categoryBtn,
+    .roundCountBtn {
+        max-width: 50vw;
+    }
+    
+    .categories,
+    .roundCount {
+        padding-bottom: 10px;
+    }
+
+    .categoryContent,
+    .roundCountContent {
+        top: 197px;
+        max-width: 50vw;
+    }
+
+    .btnContainer {
+        padding: 75px 0 150px;
+    }
+
+    .roundTitle h1 {
+        font-size: 60px;
+    }
+
+    .emojiDisplayContainer {
+        margin: 25px;
+        padding: 25px;
+    }
+
+    .emojiDisplay {
+        font-size: 65px;
+    }
+
+    .hintSection {
+        padding: 5px 40px;
+    }
+
+    .answerInput {
+        min-width: 0;
+    }
+
+    .feedbackDisplay,
+    .scoreFeedbackDisplay,
+    .scoreTitle {
+        font-size: 22px;
+        padding: 0 20px;
+    }
+
+    .scorePageEmoji {
+        width: 75px;
+    }
+    
+
+    .scoreDisplay {
+        font-size: 130px;
+    }
+
+    .footerPc {
+        display: none;
+    }
+
+    .footerMobile {
+        display: block;
+    }
+    
+}
