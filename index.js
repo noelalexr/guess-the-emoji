@@ -221,43 +221,6 @@ const localData = {
     ],
 };
 
-
-const oneWordLocal = [
-    {"word": "sunshine", "emoji": "🌞☀️", "hint": "This is what you feel when bright light warms your skin on a clear day."},
-    {"word": "coffee", "emoji": "☕️🍩", "hint": "A popular drink that many people consume to start their day or boost energy."},
-    {"word": "mountain", "emoji": "⛰️🏔️", "hint": "A large, steep landform that rises prominently above its surroundings."},
-    {"word": "ocean", "emoji": "🌊🌊", "hint": "A vast body of water covering most of the Earth's surface."},
-    {"word": "robot", "emoji": "🤖🔧", "hint": "A machine designed to carry out a series of tasks, often autonomously."},
-    {"word": "snowflake", "emoji": "❄️🌨️", "hint": "A small, delicate ice crystal that falls during winter storms."},
-    {"word": "pizza", "emoji": "🍕🍕", "hint": "A round dish with a bread crust, topped with cheese, sauce, and various ingredients."},
-    {"word": "hurricane", "emoji": "🌪️💨", "hint": "A powerful tropical storm characterized by strong winds and heavy rain."},
-    {"word": "tree", "emoji": "🌳🌲", "hint": "A tall, woody plant with branches and leaves, essential for the environment."},
-    {"word": "guitar", "emoji": "🎸🎶", "hint": "A stringed instrument that produces music when strummed or plucked."},
-    {"word": "astronaut", "emoji": "👩‍🚀👨‍🚀", "hint": "A person trained for space travel and exploration."},
-    {"word": "bicycle", "emoji": "🚲🚴‍♂️", "hint": "A two-wheeled vehicle powered by pedaling."},
-    {"word": "umbrella", "emoji": "☂️🌧️", "hint": "A portable device used to protect from rain or sunlight."},
-    {"word": "lion", "emoji": "🦁👑", "hint": "A large, carnivorous animal known for its mane and royal reputation."},
-    {"word": "pencil", "emoji": "✏️📝", "hint": "A writing tool with a graphite core, often used for drawing or writing."},
-    {"word": "music", "emoji": "🎶🎧", "hint": "Sound created through instruments or voices, often in rhythm or melody."},
-    {"word": "cloud", "emoji": "☁️🌥️", "hint": "A mass of tiny water droplets or ice crystals suspended in the atmosphere."},
-    {"word": "camera", "emoji": "📷📸", "hint": "A device used to capture images or videos."},
-    {"word": "cake", "emoji": "🍰🎂", "hint": "A sweet dessert made from flour, sugar, and other ingredients, often decorated."},
-    {"word": "volcano", "emoji": "🌋🔥", "hint": "A mountain that erupts with lava, ash, and gases from beneath the Earth's surface."},
-    {"word": "football", "emoji": "⚽️🏆", "hint": "A team sport where players kick a ball into the opponent's goal to score points."},
-    {"word": "butterfly", "emoji": "🦋🌸", "hint": "A colorful insect known for its delicate wings and metamorphosis."},
-    {"word": "phone", "emoji": "📱📞", "hint": "A device used for communication, either via voice or text."},
-    {"word": "skyscraper", "emoji": "🏙️🌆", "hint": "A tall, multi-story building often found in large cities."},
-    {"word": "icecream", "emoji": "🍦🍧", "hint": "A sweet, frozen dessert made from milk, cream, and sugar."},
-    {"word": "paint", "emoji": "🎨🖌️", "hint": "A colored substance used to create images on surfaces like canvas or walls."},
-    {"word": "rocket", "emoji": "🚀🌟", "hint": "A vehicle designed to travel through space or launch into orbit."},
-    {"word": "harvest", "emoji": "🌾🍂", "hint": "The process of gathering mature crops from the fields."},
-    {"word": "jungle", "emoji": "🌳🌿", "hint": "A dense, tropical forest that is home to various plants and animals."},
-    {"word": "castle", "emoji": "🏰⚔️", "hint": "A large, fortified building often associated with royalty and defense."},
-    {"word": "planet", "emoji": "🌍🪐", "hint": "A celestial body that orbits a star, including Earth, Mars, and others."},
-    {"word": "wizard", "emoji": "🧙‍♂️🔮", "hint": "A magical person skilled in casting spells and using mystical powers."},
-    {"word": "yoga", "emoji": "🧘‍♀️🧘‍♂️", "hint": "A practice that combines physical postures, breathing exercises, and meditation."}
-];
-
 //game options variables
 const categoryBtn = document.querySelector('.categoryBtn');
 const categoryContent = document.querySelector('.categoryContent');
@@ -336,11 +299,11 @@ const apiKey = "Z3NrX0ZPbDIzcURlbGVBenVwODFyelQ3V0dkeWIzRllmQnZyRTZzVHdlSUI3SmtD
 async function getData() {
     
     let prompts = {
-        "Random 1 Word": `Give me 30 random words along with a related 2 emojis and a description (1 whole sentence) about the word (without telling the word itself). STRICTLY USE THIS FORMAT: "[{"word": "example", "emoji": "🔥🔥", "hint": "description"}]" **MUST BE A VALID JSON FORMATTING**`,
-        "Movies": `Give me 30 random popular movie titles of all time along with a related 3 different emojis and a description about the movie which include the date, some popular characters and story (without telling the movie title). STRICTLY USE THIS FORMAT: "[{"word": "example", "emoji": "🔥🔥🔥", "hint": "hint"}]" **MUST BE A VALID JSON FORMATTING**`,
-        "Holidays & Events": `Give me 30 random popular Holidays in the Philippines along with a related 3 different emojis and a description about the word which include the date (without telling the holiday itself). STRICTLY USE THIS FORMAT: "[{"word": "example", "emoji": "🔥🔥🔥", "hint": "hint"}]" **MUST BE A VALID JSON FORMATTING**`,
-        "Places": `Give me 30 random popular places along with a related 3 different emojis and a description about the place (without telling the place itself). STRICTLY USE THIS FORMAT: "[{"word": "example", "emoji": "🔥🔥🔥", "hint": "hint"}]" **MUST BE A VALID JSON FORMATTING**`,
-        "Video Games": `Give me 30 random popular video games of all time along with a related 3 different emojis and a description about the game which include date and type of game (without telling the game name). STRICTLY USE THIS FORMAT: "[{"word": "example", "emoji": "🔥🔥🔥", "hint": "hint"}]" **MUST BE A VALID JSON FORMATTING**`,
+        "Random 1 Word": `Give me 30 random words along with a related 2 emojis and a description (1 whole sentence) about the word (without including the word itself). STRICTLY USE THIS FORMAT: "[{"word": "example", "emoji": "🔥🔥", "hint": "description"}]" **MUST BE A VALID JSON FORMATTING**`,
+        "Movies": `Give me 30 random popular movie titles of all time along with a related 3 different emojis and a description about the movie which include the date, some popular characters and story (without including the movie title). STRICTLY USE THIS FORMAT: "[{"word": "example", "emoji": "🔥🔥🔥", "hint": "hint"}]" **MUST BE A VALID JSON FORMATTING**`,
+        "Holidays & Events": `Give me 30 random popular Holidays in the Philippines along with a related 3 different emojis and a description about the word which include the date (without including the holiday itself). STRICTLY USE THIS FORMAT: "[{"word": "example", "emoji": "🔥🔥🔥", "hint": "hint"}]" **MUST BE A VALID JSON FORMATTING**`,
+        "Places": `Give me 30 random popular places along with a related 3 different emojis and a description about the place (without including the place itself). STRICTLY USE THIS FORMAT: "[{"word": "example", "emoji": "🔥🔥🔥", "hint": "hint"}]" **MUST BE A VALID JSON FORMATTING**`,
+        "Video Games": `Give me 30 random popular video games of all time along with a related 3 different emojis and a description about the game which include date and type of game (without including the game name). STRICTLY USE THIS FORMAT: "[{"word": "example", "emoji": "🔥🔥🔥", "hint": "hint"}]" **MUST BE A VALID JSON FORMATTING**`,
     };
 
     let prompt = prompts[categoryBtn.textContent]
